@@ -26,20 +26,38 @@ class ResponseStructure extends AbstractStructure implements ResponseStructureIn
     /** @var array */
     private $messages = [];
     /** @var mixed */
-    private $data  = [];
+    private $data = [];
+
+    /**
+     * ResponseStructure constructor.
+     *
+     * @param bool  $status
+     * @param array $data
+     * @param array $messages
+     * @param int   $httpStatus
+     */
+    public function __construct(bool $status = false, $data = [], $messages = [],
+                                int $httpStatus = self::HTTP_BAD_REQUEST)
+    {
+        $this->status = $status;
+        $this->data = $data;
+        $this->messages = $messages;
+        $this->httpStatus = $httpStatus;
+    }
 
     /**
      * В конструктор вынесены параметры, которые можно назначить сеттерами,
      * но иногда удобнее через вызов класса как функции
      *
-     * @param bool $status
+     * @param bool  $status
      * @param array $data
      * @param array $messages
-     * @param int $httpStatus
+     * @param int   $httpStatus
      *
      * @return ResponseStructureInterface
      */
-    public function __invoke(bool $status = false, $data = [], $messages = [], int $httpStatus = self::HTTP_BAD_REQUEST): ResponseStructureInterface
+    public function __invoke(bool $status = false, $data = [], $messages = [],
+                             int $httpStatus = self::HTTP_BAD_REQUEST): ResponseStructureInterface
     {
         $this->setStatus($status);
         $this->setHttpStatus($httpStatus);

@@ -19,9 +19,9 @@ interface ResponseStructureInterface
         DATA_KEY = 'data';
 
     const
-        HTTP_OK           = Http\Status::HTTP_OK,
-        HTTP_CREATED      = Http\Status::HTTP_CREATED,
-        HTTP_BAD_REQUEST  = Http\Status::HTTP_BAD_REQUEST,
+        HTTP_OK = Http\Status::HTTP_OK,
+        HTTP_CREATED = Http\Status::HTTP_CREATED,
+        HTTP_BAD_REQUEST = Http\Status::HTTP_BAD_REQUEST,
         HTTP_UNAUTHORIZED = Http\Status::HTTP_UNAUTHORIZED;
 
 

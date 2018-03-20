@@ -23,7 +23,8 @@ abstract class AbstractStructure implements StructureInterface
      * @throws ArrayIsNotAssociative
      * @return StructureInterface
      */
-    public function fillFromArray(array $data): StructureInterface {
+    public function fillFromArray(array $data): StructureInterface
+    {
         /** Check, if array is a indexed, not associative */
         if ($data === array_values($data)) {
             throw new ArrayIsNotAssociative(
@@ -34,7 +35,7 @@ abstract class AbstractStructure implements StructureInterface
         /** Set attributes to structure */
         foreach ($data as $attribute => $value) {
             $reflection = new \ReflectionClass($this);
-            $method = 'set'.ucfirst($attribute);
+            $method = 'set' . ucfirst($attribute);
             if ($reflection->hasMethod($method)) {
                 /** Format value */
                 $value = $this->formatValue($value);
@@ -51,25 +52,26 @@ abstract class AbstractStructure implements StructureInterface
      *
      * @return mixed
      */
-    private function formatValue($value) {
+    private function formatValue($value)
+    {
         if (is_array($value)) {
-            return (array) $value;
+            return (array)$value;
         }
 
         if (is_string($value)) {
-            return (string) $value;
+            return (string)$value;
         }
 
         if (is_bool($value)) {
-            return (bool) $value;
+            return (bool)$value;
         }
 
         if (is_int($value)) {
-            return (int) $value;
+            return (int)$value;
         }
 
         if (is_float($value)) {
-            return (float) $value;
+            return (float)$value;
         }
 
         return $value;

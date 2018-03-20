@@ -16,7 +16,7 @@ class StructureFactory
     /**
      * @param string $className
      *
-     * @param array $data
+     * @param array  $data
      *
      * @throws \ReflectionException
      * @return StructureInterface
