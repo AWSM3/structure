@@ -17,7 +17,7 @@ $ composer require awsm3/structure
 ``` php
 $factory = new Awsm3\Structure\StructureFactory();
 $structure = $factory->make(
-    \Awsm3\Structure\Response\ResponseStructure::class, 
+    Awsm3\Structure\Response\ResponseStructure::class, 
     [
         'httpStatus' => Awsm3\Structure\Response\Http\Status::HTTP_ACCEPTED,
         'status' => true,
