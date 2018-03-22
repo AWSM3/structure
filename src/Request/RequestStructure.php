@@ -17,12 +17,6 @@ use Awsm3\Structure\Exception\RequestAttributeNotDefined;
  */
 class RequestStructure extends AbstractStructure implements RequestStructureInterface
 {
-    const
-        METHOD_GET = 'GET',
-        METHOD_POST = 'POST',
-        METHOD_PUT = 'PUT',
-        METHOD_PATCH = 'PATCH';
-
     /**
      * @throws RequestAttributeNotDefined
      * @return string
