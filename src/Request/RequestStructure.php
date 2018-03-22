@@ -9,6 +9,7 @@ namespace Awsm3\Structure\Request;
 
 /** @uses */
 use Awsm3\Structure\AbstractStructure;
+use Awsm3\Structure\Exception\RequestAttributeNotDefined;
 
 /**
  * Class RequestStructure
@@ -16,4 +17,33 @@ use Awsm3\Structure\AbstractStructure;
  */
 class RequestStructure extends AbstractStructure implements RequestStructureInterface
 {
+    const
+        METHOD_GET = 'GET',
+        METHOD_POST = 'POST',
+        METHOD_PUT = 'PUT',
+        METHOD_PATCH = 'PATCH';
+
+    /**
+     * @throws RequestAttributeNotDefined
+     * @return string
+     */
+    public function requestUri(): string {
+        throw new RequestAttributeNotDefined(sprintf('Аттрибут запроса `%s` не определён', __METHOD__));
+    }
+
+    /**
+     * @throws RequestAttributeNotDefined
+     * @return string
+     */
+    public function method(): string {
+        throw new RequestAttributeNotDefined(sprintf('Аттрибут запроса `%s` не определён', __METHOD__));
+    }
+
+    /**
+     * @throws RequestAttributeNotDefined
+     * @return array
+     */
+    public function params(): array {
+        throw new RequestAttributeNotDefined(sprintf('Аттрибут запроса `%s` не определён', __METHOD__));
+    }
 }
