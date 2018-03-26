@@ -48,6 +48,30 @@ abstract class AbstractStructure implements StructureInterface
     }
 
     /**
+     * @param callable|null $callback
+     *
+     * @throws Exception\StructureHashIsNotStringType Если callback вернул не строку
+     * @return string
+     */
+    public function makeHash(callable $callback = null): string
+    {
+        if (is_callable($callback)) {
+            $hash = call_user_func($callback, $this);
+            if (!is_string($hash)) {
+                throw new Exception\StructureHashIsNotStringType(
+                    sprintf('Возвращаемый тип callback-функции хэширования должен быть типа %', '`string`')
+                );
+            }
+
+            return $hash;
+        }
+
+        $serialized = serialize($this);
+
+        return md5($serialized);
+    }
+
+    /**
      * @param $value
      *
      * @return mixed

@@ -19,4 +19,12 @@ interface StructureInterface
      * @return StructureInterface
      */
     public function fillFromArray(array $data): StructureInterface;
+
+    /**
+     * @param callable|null $callback
+     *
+     * @throws Exception\StructureHashIsNotStringType Если callback вернул не строку
+     * @return string
+     */
+    public function makeHash(callable $callback = null): string;
 }
